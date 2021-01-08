@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import ChildComponentOne from "./ChildComponentOne";
+import ChildComponentTwo from "./ChildComponentTwo";
+export default class App extends Component {
+  state = {
+    counterOne: 0,
+    counterTwo: 0
+  };
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  handleCounterOne = () => {
+    this.setState({ counterOne: this.state.counterOne + 1 });
+  };
+
+  handleCounterTwo = () => {
+    this.setState({ counterTwo: this.state.counterTwo + 1 });
+  };
+
+  render() {
+    return (
+      <div>
+        <ChildComponentOne
+          counterOne={this.state.counterOne}
+          handleCounterOne={this.handleCounterOne}
+          handleCounterTwo={this.handleCounterTwo}
+        />
+        <ChildComponentTwo
+          counterTwo={this.state.counterTwo}
+          handleCounterOne={this.handleCounterOne}
+          handleCounterTwo={this.handleCounterTwo}
+        />
+      </div>
+    );
+  }
 }
-
-export default App;
