@@ -4,7 +4,8 @@ import ChildComponentTwo from "./ChildComponentTwo";
 export default class App extends Component {
   state = {
     counterOne: 0,
-    counterTwo: 0
+    counterTwo: 0,
+    counterThree: 0
   };
 
   handleCounterOne = () => {
